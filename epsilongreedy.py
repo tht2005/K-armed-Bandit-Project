@@ -11,7 +11,7 @@ class EpsilonGreedy:
         self.N              = [0] * self.A
 
     def chooseAction(self):
-        if np.random.rand() <= self.epsilon:
+        if np.random.rand() < self.epsilon:
             return np.random.randint(0, self.A)
         return np.argmax(self.Q)
 
