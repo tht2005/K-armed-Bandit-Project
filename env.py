@@ -1,10 +1,11 @@
 import numpy as np
 
 class Env:
-    def initTest(self, N):
+    def initTest(self, N, MAXR, COST):
         self.A          = N
         self.PROB       = [ ( (p / 2) if (p > 0.5) else p ) for p in np.random.rand(N) ]
-        self.R          = np.random.randint(0, 100, size=N)
+        self.R          = np.random.randint(0, MAXR, size=N)
+        self.COST       = COST
 
     def sendAction(self, a):
         if a < 0 or a >= self.A:
@@ -13,5 +14,5 @@ class Env:
 
         random_number = np.random.rand()
         if random_number <= self.PROB[a]:
-            return self.R[a] - 15
-        return -15
+            return self.R[a] - self.COST
+        return -self.COST
