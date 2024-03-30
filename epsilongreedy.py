@@ -1,13 +1,13 @@
 import numpy as np
 
 class EpsilonGreedy:
-    def __init__(self, env, epsilon, NSTEP):
+    def __init__(self, env, epsilon, NSTEP, INITQ=0):
         self.epsilon        = epsilon
         self.NSTEP          = NSTEP
 
         self.env            = env
         self.A              = env.A
-        self.Q              = [0] * self.A
+        self.Q              = [INITQ] * self.A
         self.N              = [0] * self.A
 
     def chooseAction(self):
