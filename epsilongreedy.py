@@ -7,8 +7,8 @@ class EpsilonGreedy:
 
         self.env            = env
         self.A              = env.A
-        self.Q              = [INITQ] * self.A
-        self.N              = [0] * self.A
+        self.Q              = [INITQ for i in range(self.A)]
+        self.N              = [0 for i in range(self.A)]
 
     def chooseAction(self):
         if np.random.rand() < self.epsilon:
