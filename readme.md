@@ -5,6 +5,7 @@
     gradient bandit algorithms
 
 ## Requires
+    python3
     Libraries: numpy, matplotlib
 
 ## Visualization
