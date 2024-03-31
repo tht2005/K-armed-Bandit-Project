@@ -1,6 +1,6 @@
 # Different approaches of k-armed bandit problem
     epsilon-greedy
-    optimistic, greedy
+    optimistic initial values (modified epsilon-greedy)
     upper-confidence-bound action selection
     gradient bandit algorithms
 
