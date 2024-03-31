@@ -37,8 +37,8 @@ plt.xlabel('Time steps')
 plt.ylabel('Average Reward')
 
 step = [ i for i in range(NSTEP + 1) ]
-plt.plot(step, history[0] / NTEST, label='e = 0.1', linestyle='--')
-plt.plot(step, history[1] / NTEST, label='c = 2', linestyle=':')
+plt.plot(step, history[0] / NTEST, label='ε = {}'.format(0.1))
+plt.plot(step, history[1] / NTEST, label='UCB c = {}'.format(UCB_C))
 
 plt.legend()
 plt.show()

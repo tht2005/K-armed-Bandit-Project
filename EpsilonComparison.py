@@ -14,7 +14,7 @@ NACTION     = 10
 env = Env()
 
 # epsilon values to test
-epsilon_list                = [ 0, 0.01, 0.05, 0.1, 0.2, 0.5 ]
+epsilon_list                = [ 0, 0.05, 0.1, 0.3 ]
 epsilon_style               = [ 'solid', 'dotted', 'dashed', 'dashdot', (5, (10, 3)), (0, (1, 1)) ]
 
 # np.array history[len(epsilon_list)][NSTEP + 1] = { 0 }
@@ -38,12 +38,13 @@ print()
 
 
 # Draw graph
+plt.title('ε-greedy with different ε parameters')
 plt.xlabel('Time steps')
-plt.ylabel('Total Reward')
+plt.ylabel('Average Reward')
 
 step = [ i for i in range(NSTEP + 1) ]
 for i in range(len(epsilon_list)):
-    plt.plot(step, history[i] / NTEST, label="e = {}".format(epsilon_list[i]), linestyle=epsilon_style[i])
+    plt.plot(step, (history[i] / NTEST).tolist(), label="ε = {}".format(epsilon_list[i]))
 
 plt.legend()
 plt.show()
