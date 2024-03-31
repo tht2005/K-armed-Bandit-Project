@@ -25,7 +25,7 @@ class Ucb:
         self.Q[a] = self.Q[a] + (R - self.Q[a]) / self.N[a]
 
     def solve(self):
-        history = [ 0 ]
+        history = []
 
         for t in range(1, self.NSTEP + 1):
             a = self.chooseAction(t)

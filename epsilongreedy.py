@@ -20,7 +20,7 @@ class EpsilonGreedy:
         self.Q[a] = self.Q[a] + (R - self.Q[a]) / self.N[a]
 
     def solve(self):
-        history = [ 0 ]
+        history = []
 
         for step in range(self.NSTEP):
             a = self.chooseAction()
