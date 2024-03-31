@@ -15,7 +15,6 @@ env = Env()
 
 # epsilon values to test
 epsilon_list                = [ 0, 0.05, 0.1, 0.3 ]
-epsilon_style               = [ 'solid', 'dotted', 'dashed', 'dashdot', (5, (10, 3)), (0, (1, 1)) ]
 
 # np.array history[len(epsilon_list)][NSTEP] = { 0 }
 history = [ np.array([0] * NSTEP, dtype=float) for first_d_size in range(len(epsilon_list)) ]
