@@ -11,8 +11,8 @@ class EpsilonGreedy:
         self.N              = [0 for i in range(self.A)]
 
     def chooseAction(self):
-        if np.random.rand() < self.epsilon:
-            return np.random.randint(0, self.A)
+        if np.random.uniform(low=0, high=1) < self.epsilon:
+            return np.random.randint(low=0, high=self.A)
         return np.argmax(self.Q)
 
     def updateAction(self, a, R):
@@ -20,7 +20,6 @@ class EpsilonGreedy:
         self.Q[a] = self.Q[a] + (R - self.Q[a]) / self.N[a]
 
     def solve(self):
-        total_reward = 0
         history = [ 0 ]
 
         for step in range(self.NSTEP):
@@ -28,8 +27,7 @@ class EpsilonGreedy:
             R = self.env.sendAction(a)
             self.updateAction(a, R)
 
-            total_reward += R
-            history.append(total_reward)
+            history.append(R)
 
         return history
 
