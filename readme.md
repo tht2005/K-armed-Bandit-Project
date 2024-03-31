@@ -13,6 +13,7 @@
     EpsilonVsUcb.py
     GradientComparison.py
     OptimisticInitialValues.py
+    Summary.py
 
 ## Class Environment:
     env.py
