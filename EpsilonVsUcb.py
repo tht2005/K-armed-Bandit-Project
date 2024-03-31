@@ -16,7 +16,7 @@ UCB_C = 2
 env = Env()
 
 # history
-history = [ np.array([0] * (NSTEP + 1), dtype=float) for first_d_size in range(2) ]
+history = [ np.array([0] * NSTEP, dtype=float) for first_d_size in range(2) ]
 
 for itest in range(NTEST):
     env.initTest(NACTION)
@@ -36,7 +36,7 @@ print()
 plt.xlabel('Time steps')
 plt.ylabel('Average Reward')
 
-step = [ i for i in range(NSTEP + 1) ]
+step = [ i for i in range(NSTEP) ]
 plt.plot(step, history[0] / NTEST, label='ε = {}'.format(0.1))
 plt.plot(step, history[1] / NTEST, label='UCB c = {}'.format(UCB_C))
 
