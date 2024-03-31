@@ -9,8 +9,8 @@ class Ucb:
         self.t = 1
 
         self.A              = env.A
-        self.Q              = [0] * env.A
-        self.N              = [0] * env.A
+        self.Q              = [ 0 for i in range(env.A) ]
+        self.N              = [ 0 for i in range(env.A) ]
 
     def calc(self, t, a):
         if self.N[a] == 0:
@@ -25,7 +25,6 @@ class Ucb:
         self.Q[a] = self.Q[a] + (R - self.Q[a]) / self.N[a]
 
     def solve(self):
-        total_reward = 0
         history = [ 0 ]
 
         for t in range(1, self.NSTEP + 1):
@@ -33,8 +32,7 @@ class Ucb:
             R = self.env.sendAction(a)
             self.updateAction(a, R)
 
-            total_reward += R
-            history.append(total_reward)
+            history.append(R)
 
         return history
 
