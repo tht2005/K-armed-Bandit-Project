@@ -2,9 +2,9 @@ import numpy as np
 import sys
 
 class Env:
-    def initTest(self, A):
+    def initTest(self, A, CEN=0):
         self.A          = A
-        self.EV         = [ np.random.normal(loc=0, scale=1) for i in range(A) ]
+        self.EV         = [ np.random.normal(loc=CEN, scale=1) for i in range(A) ]
 
     def sendAction(self, a):
         if a < 0 or a >= self.A:
